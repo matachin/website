@@ -1,0 +1,15 @@
+---
+layout: default
+title: Categories
+use:
+    - posts_categories
+---
+<main role="main" class="container matachin-page">
+<h1>Categorías del Blog</h1>
+
+<div>
+{% for category,posts in data.posts_categories %}
+<a href="{{ site.url }}/blog/categorias/{{ category|url_encode(true) }}">{{ category }}</a>
+{% endfor %}
+</div>
+</main>

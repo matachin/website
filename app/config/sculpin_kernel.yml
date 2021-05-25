@@ -1,0 +1,16 @@
+sculpin_theme:
+  theme: matachin-themes/matachin-0.1
+
+sculpin_content_types:
+    projects:
+        permalink: proyecto/:slug_title
+    gear:
+        permalink: equipo/:slug_title
+    posts:
+        permalink: blog/:year/:month/:day/:filename/
+    
+
+# To disable posts (e.g., if you aren't planning on having any posts and Sculpin's watch mode complains):
+#sculpin_content_types:
+#    posts:
+#        enabled: false

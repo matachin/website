@@ -1,0 +1,18 @@
+---
+layout: default
+title: Clientes
+use: [projects]
+---
+<main role="main" class="container matachin-page matachin-about">
+<h1>Clientes</h1>
+<p>Algunos clientes con los que he trabajado:</p>
+{% for project in data.projects %}
+<div class="card client-item" style="width: 200px;">
+  <a href="{{ project.url }}"><img class="card-img-top" src="{{ site.url }}/build/art/{{ project.art }}" alt="{{ project.title }}"></a>
+  <div class="card-body">
+    <p class="card-text"><a href="{{ project.url }}"><strong>{{ project.artist }}</strong><br>{{ project.work }}</a></p>
+  </div>
+</div>
+{% endfor %}
+</main>
+<div class="clearfix"></div>

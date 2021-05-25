@@ -1,0 +1,17 @@
+---
+layout: default
+title: Equipo
+use: [gear]
+---
+<main role="main" class="container matachin-page matachin-about">
+<h1>Hacemos música con esto</h1>
+<p class="text-center">Contamos con equipo y curiosidades para tu grabación y mezcla, que van desde nuevo, vintage, experimental y modificados, échale un vistazo a la colección:</p>
+{% for g in data.gear %}
+<div class="gear-item" title="{{ g.notes }}">
+  <a href="{{ g.url }}"><img class="card-img-top" src="{{ site.url }}/build/gear/{{ g.image }}" alt="{{ g.title }}"></a>
+  <div><a href="{{ g.url }}">{{ g.title }}</a></div>
+</div>
+{% endfor %}
+<div class="clearfix"></div>
+</main>
+<div class="clearfix"></div>
