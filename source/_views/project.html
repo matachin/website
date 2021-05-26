@@ -16,8 +16,15 @@
             <h2 class="matachin-post-title">{{ page.title }}</h2>
             <div class="matachin-post-extra">{{ page.notes|raw }}</div>
         </header>
+        
         <div>
             {{ page.blocks.content|raw }}
+        </div>
+        <div class="d-flex justify-content-center" style="margin-top: 2em; color: #777">
+          {% if page.production %}<div class="p-2"><span class="project-production"></span> Producción</div>{% endif %}
+          {% if page.recording %}<div class="p-2"><span class="project-recording"></span> Grabación</div>{% endif %}
+          {% if page.mixing %}<div class="p-2"><span class="project-mixing"></span> Mezcla</div>{% endif %}
+          {% if page.mastering %}<div class="p-2"><span class="project-mastering"></span> Mastering</div>{% endif %}
         </div>
       </article>
     </div>

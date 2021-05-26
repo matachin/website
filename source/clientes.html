@@ -5,7 +5,12 @@ use: [projects]
 ---
 <main role="main" class="container matachin-page matachin-about">
 <h1>Clientes</h1>
-<p>Algunos clientes con los que he trabajado:</p>
+<div class="d-flex justify-content-center" style="margin-bottom: 2em;">
+  <div class="p-2"><span class="project-production"></span> Producción</div>
+  <div class="p-2"><span class="project-recording"></span> Grabación</div>
+  <div class="p-2"><span class="project-mixing"></span> Mezcla</div>
+  <div class="p-2"><span class="project-mastering"></span> Mastering</div>
+</div>
 {% for project in data.projects %}
 <div class="card client-item" style="width: 200px;">
   <a href="{{ project.url }}"><img class="card-img-top" src="{{ site.url }}/build/art/{{ project.art }}" alt="{{ project.title }}"></a>
