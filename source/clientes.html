@@ -10,7 +10,8 @@ use: [projects]
 <div class="card client-item" style="width: 200px;">
   <a href="{{ project.url }}"><img class="card-img-top" src="{{ site.url }}/build/art/{{ project.art }}" alt="{{ project.title }}"></a>
   <div class="card-body">
-    <p class="card-text"><a href="{{ project.url }}"><strong>{{ project.artist }}</strong><br>{{ project.work }}</a></p>
+    <p class="card-text"><a href="{{ project.url }}"><strong>{{ project.artist }}</strong><br>{{ project.work }}</a><br>{% if project.production  %}<span class="project-production"></span>{% endif %}{% if project.recording  %}<span class="project-recording"></span>{% endif %}{% if project.mixing  %}<span class="project-mixing"></span>{% endif %}{% if project.mastering  %}<span class="project-mastering"></span>{% endif %}</p>
+    
   </div>
 </div>
 {% endfor %}
