@@ -5,14 +5,16 @@ use: [projects]
 ---
 <main role="main" class="container matachin-page matachin-about">
 <h1>Lista Clientes</h1>
-<table class="table">
+<table class="table clients-list">
   <tr>
+  	<th></th>
   	<th>Artista</th>
   	<th>Proyecto</th>
   	<th>Créditos</th>
   </tr>
   {% for project in data.projects %}
     <tr>
+      <td class="image"><img class="img-fluid" src="{{ site.url }}/build/art/{{ project.art }}"></td>
       <td>{{ project.artist }}</td>
       <td><a href="{{ project.url }}">{{ project.work }}</a></td>
       <td>

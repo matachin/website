@@ -11092,3 +11092,14 @@ header.masthead .masthead-content .masthead-subheading {
   display: inline-block;
   margin-right: 5px;
 }
+
+.clients-list .image {
+  height: 50px;
+}
+.clients-list .image img {
+  width:  48px;
+}
+
+.clients-list td {
+  vertical-align: middle;
+}
