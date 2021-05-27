@@ -11,15 +11,18 @@ use: [projects]
   <div class="p-2"><span class="project-mixing"></span> Mezcla</div>
   <div class="p-2"><span class="project-mastering"></span> Mastering</div>
 </div>
+<div class="row align-items-center">
 {% for project in data.projects %}
-<div class="card client-item" style="width: 200px;">
-  <a href="{{ project.url }}"><img class="card-img-top" src="{{ site.url }}/build/art/{{ project.art }}" alt="{{ project.title }}"></a>
-  <div class="card-body">
-    <p class="card-text"><a href="{{ project.url }}"><strong>{{ project.artist }}</strong><br>{{ project.work }}</a><br>{% if project.production  %}<span class="project-production"></span>{% endif %}{% if project.recording  %}<span class="project-recording"></span>{% endif %}{% if project.mixing  %}<span class="project-mixing"></span>{% endif %}{% if project.mastering  %}<span class="project-mastering"></span>{% endif %}</p>
-    
+<div class="col">
+  <div class="card client-item" >
+    <a href="{{ project.url }}"><img class="card-img-top" src="{{ site.url }}/build/art/{{ project.art }}" alt="{{ project.title }}"></a>
+    <div class="card-body">
+      <p class="card-text"><a href="{{ project.url }}"><strong>{{ project.artist }}</strong><br>{{ project.work }}</a><br>{% if project.production  %}<span class="project-production"></span>{% endif %}{% if project.recording  %}<span class="project-recording"></span>{% endif %}{% if project.mixing  %}<span class="project-mixing"></span>{% endif %}{% if project.mastering  %}<span class="project-mastering"></span>{% endif %}</p>
+    </div>
   </div>
 </div>
 {% endfor %}
+</div>
 <div class="clearfix"></div>
 <div class="text-center"><small><a href="/clientes/lista">Ver en listado</a></small></div>
 </main>

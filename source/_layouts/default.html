@@ -8,7 +8,6 @@
         {% block head_meta %}
             <meta name="robots" content="noindex, follow">
         {% endblock %}
-        <script src="https://kit.fontawesome.com/a086923257.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{{ site.url }}/build/app.css">
         <link rel="stylesheet" href="{{ site.url }}/{{ theme_path('css/style.css') }}" />
 
@@ -66,8 +65,10 @@
             <small>HECHO EN EL DESIERTO</small><br>
             &copy; {{ "now"|date("Y") }} <a href="https://matach.in">{{ site.title }}</a></span>
         </footer>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/a086923257.js" crossorigin="anonymous"></script>
         <script src="{{ site.url }}/build/app.js"></script>
+        
         {% block scripts %}
         {% endblock %}
 
