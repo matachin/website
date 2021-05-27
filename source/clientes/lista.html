@@ -1,0 +1,31 @@
+---
+layout: default
+title: Clientes
+use: [projects]
+---
+<main role="main" class="container matachin-page matachin-about">
+<h1>Lista Clientes</h1>
+<table class="table">
+  <tr>
+  	<th>Artista</th>
+  	<th>Proyecto</th>
+  	<th>Créditos</th>
+  </tr>
+  {% for project in data.projects %}
+    <tr>
+      <td>{{ project.artist }}</td>
+      <td><a href="{{ project.url }}">{{ project.work }}</a></td>
+      <td>
+        {% set credits = [] %}
+      	
+      	{% if project.production  %}{% set credits = credits|merge(['Producción']) %}{% endif %}
+        {% if project.recording  %}{% set credits = credits|merge(['Grabación']) %}{% endif %}
+        {% if project.mixing  %}{% set credits = credits|merge(['Mezcla']) %}{% endif %}
+        {% if project.mastering  %}{% set credits = credits|merge(['Mastering']) %}{% endif %}
+        {{ credits|join(', ', ' y ') }}
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+</main>
+<div class="clearfix"></div>
