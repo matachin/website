@@ -9,8 +9,7 @@
             <meta name="robots" content="noindex, follow">
         {% endblock %}
         <link rel="stylesheet" href="{{ site.url }}/build/app.css">
-        <link rel="stylesheet" href="{{ site.url }}/{{ theme_path('css/style.css') }}" />
-
+        <link rel="stylesheet" href="{{ site.url }}/{{ theme_path('css/style.css') }}?v={{ 'now'|date('Ymdhis') }}" />
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
