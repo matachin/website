@@ -14,21 +14,29 @@ use:
     <article class="matachin-post">
         <header>
             <h2 class="matachin-post-title"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
-            <div class="matachin-post-extra"><strong>{{post.author}}</strong> {{ post.date|date('M dS, Y') }}</div>
+            <div class="matachin-post-extra"><strong>{{post.author}}</strong> {{ post.date|date('M dS, Y') }} <span class="comments-count"><i class="fa fa-comments" aria-hidden="true"></i> <a href="{{ site.url }}{{ post.url }}#disqus_thread">{{ post.title }}</a></span></div>
         </header>
         <div>
             {{ post.blocks.content|raw }}
         </div>
-        <a href="{{ site.url }}{{ post.url }}#disqus_thread">{{ post.title }}</a> | 
+        <p>
+        {% if post.meta.categories %}
+            <span class="categories">
+            Categorías:
+            {% for category in post.meta.categories %}
+            <a href="{{ site.url }}/blog/categorias/{{ category|url_encode(true) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </span>
+        {% endif %}
         {% if post.meta.tags %}
-            <p class="tags">
-
+            <span class="tags">
             Tags:
             {% for tag in post.meta.tags %}
             <a href="{{ site.url }}/blog/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
-            </p>
+            </span>
         {% endif %}
+        </p>
     </article>
 {% endfor %}
 {% if page.pagination.previous_page or page.pagination.next_page %}
