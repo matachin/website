@@ -10965,7 +10965,7 @@ header.masthead .masthead-content .masthead-subheading {
 }
 
 .matachin-post {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px dashed #ddd;
   margin-bottom: 2em;
   padding-bottom: 2em;
 }
@@ -11047,6 +11047,12 @@ header.masthead .masthead-content .masthead-subheading {
   color: #fff;
 }
 
+.album-art {
+  border: 1px solid #ddd;
+}
+.client-item {
+  background:  #fefefe;
+}
 .client-item .card-text {
   white-space: pre;
   overflow: hidden;
@@ -11055,6 +11061,7 @@ header.masthead .masthead-content .masthead-subheading {
 .client-item img {
   min-width: 200px;
   max-width: 200px;
+  border-bottom:  1px solid #eee;
 }
 
 .project-production {
@@ -11098,6 +11105,7 @@ header.masthead .masthead-content .masthead-subheading {
 }
 .clients-list .image img {
   width:  48px;
+  border:  1px solid #ddd;
 }
 
 .clients-list td {
