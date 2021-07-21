@@ -4017,8 +4017,8 @@ textarea.form-control-lg {
 .navbar-toggler-icon {
   display: inline-block;
   float: right;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
   vertical-align: middle;
   background-repeat: no-repeat;
   background-position: center;
@@ -4030,7 +4030,14 @@ textarea.form-control-lg {
   overflow-y: auto;
 }
 
+@media (max-width: 400px) {
+  .navbar-logo {
+    height: 32px !important;
+  }
+} 
 @media (min-width: 576px) {
+  
+
   .navbar-expand-sm {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -10931,6 +10938,7 @@ header.masthead .masthead-content .masthead-subheading {
 
 .navbar-brand img {
   height: 48px;
+  float:  left;
 }
 
 .matachin-footer {
@@ -11110,4 +11118,23 @@ header.masthead .masthead-content .masthead-subheading {
 
 .clients-list td {
   vertical-align: middle;
+}
+
+.categories, .tags {
+  color:  #999;
+  font-size:  80%;
+  margin-right:  1.5em;
+}
+
+.categories a, .tags a {
+  color:  #777;
+}
+
+.comments-count {
+  color:  #999;
+  margin-left:  1.5em;
+}
+
+.comments-count a {
+  color:  #20c997;
 }
