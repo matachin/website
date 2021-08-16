@@ -1,0 +1,65 @@
+---
+title: Recording Light, primer intento
+author: Jonathan Hernández
+categories:
+    - misc
+tags:
+    - hacks
+
+---
+<p>En estos días hice una "Recording Light" para Logic Pro X, consiste en que cuando uno presiona el botón de grabar se enciende una luz led externa para que la persona que está en la sesión sepa que en ese momento se está grabando. Este primer intento usa un Arduino Nano y es por eso que requiere de un script adicional hecho en Python para poder mandarle la señal por usb serial.</p>
+<p>Aquí está el script de Python, básicamente lo que hace es que crea un dispositivo MIDI virtual llamado <em>MatachinRecLight</em> el cual detecta si la nota 25 esta en 0 o 127 para mandar un A (encendido) o una X (apagado) por el puerto serial al Arduino.<br>
+<code>#!/usr/bin/env python
+
+from serial import Serial
+import mido
+
+s = Serial(port='/dev/tty.usbserial-A400Y6SQ', baudrate=9600, bytesize=8, timeout=0)
+with mido.open_input('MatachinRecLight', virtual=True) as input_port:
+  for message in input_port:
+    if message.note == 25:
+      if message.velocity == 0:
+        print "Recording stop"
+        s.write("X")
+      if message.velocity == 127:
+        print "Recording start"
+        s.write("A")</code>
+Nota: Si quieres usar este script hay que modificar el <em>tty.usbserial-A400Y6SQ</em> al identificador que te de tu Arduino al conectarlo.
+</p>
+
+
+<p>Y aquí está el sketch para el Arduino Nano:
+<code>char ENT;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(3, OUTPUT);
+  digitalWrite(3, LOW);
+}
+
+void loop() {
+  if (Serial.available() > 0){
+    ENT = Serial.read();
+    if (ENT == 'A'){
+      digitalWrite(3, HIGH);
+    }
+    if (ENT == 'X'){
+      digitalWrite(3, LOW);
+    }
+    ENT = 'S';
+  }
+}</code>
+</p>
+
+<p>Ya teniendo el script ejecutando y nuestro Arduino conectado, agregamos en Logic Pro X la Control Surface llamada Recording Light desde el menú <em>Logic Pro X > Control Surfaces > Setup...</em></p>
+<p class="blog-image">
+<img src="{{ site.url }}/build/blog/control-surface-rec-light.png" alt="Control Surface">
+</p>
+
+<p>El resultado:</p>
+<p class="blog-image">
+<iframe width="260" height="355" src="https://www.youtube.com/embed/qGgVPHjxDHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+<p>Como ven son muy simples ambos scripts, mi siguiente intento es usar un <a href="https://store.arduino.cc/usa/leonardo">Arduino Leonardo</a> el cual cuenta con un chip ATmega32u4 que puede funcionar directamente como dispositivo MIDI y con esto no tendriamos que tener un script adicional corriendo en nuestra computadora, bastaría con programar el Arduino y conectarlo por USB.</p>
+<p>Esta semana hago pruebas.</p>

@@ -245,8 +245,13 @@ pre code {
 
 code {
   font-size: 0.875em;
-  color: #ee0979;
+  color: #fafafa;
+  background-color: #333;
   word-wrap: break-word;
+  display:  block;
+  white-space: pre;
+  padding:  1em;
+  margin:  0.5em 0;
 }
 a > code {
   color: inherit;
@@ -11067,8 +11072,8 @@ header.masthead .masthead-content .masthead-subheading {
 }
 
 .client-item img {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 250px;
+  max-width: 250px;
   border-bottom:  1px solid #eee;
 }
 
@@ -11137,4 +11142,12 @@ header.masthead .masthead-content .masthead-subheading {
 
 .comments-count a {
   color:  #20c997;
+}
+
+.blog-image {
+  text-align:  center;
+}
+
+.blog-image img {
+  width:  50%;
 }

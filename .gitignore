@@ -1,4 +1,5 @@
 .DS_Store
+.DS_Store/
 /.sculpin/
 /app/cache/*
 /app/config/sculpin_kernel_*.yml
